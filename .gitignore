@@ -1,0 +1,23 @@
+# System files
+**/.DS_Store
+
+# Python related files
+venv/
+__pycache__/
+scratch.py
+hello.py
+
+# Packaging and distribution
+build/
+dist/
+app.spec
+Resources/
+**.build
+Info.plist
+
+# Because `pip install rawpy` didn't work, run:
+# > git clone https://github.com/letmaik/rawpy
+# > cd rawpy
+# > pip install numpy cython
+# > pip install .
+rawpy/
