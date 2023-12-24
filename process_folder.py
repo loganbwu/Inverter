@@ -8,7 +8,7 @@ from libtiff import TIFFimage
 import tifffile
 # from pylibtiff import TIFFimage
 
-from transformations import normalise, contrast, auto_black_point, auto_white_point, invert
+from transformations import normalise, adjust_contrast, auto_black_point, auto_white_point, invert, adjust_gamma
 
 
 folder_in = '/Users/wu.l/Downloads/3187'
@@ -42,7 +42,7 @@ if files_in:
         black_point = auto_black_point(img)
         white_point = auto_white_point(img)
         img = normalise(img, black_point, white_point)
-        img = contrast(img, 1)
+        img = adjust_contrast(img, 1)
 
         if img_format == 'JPEG':
             # PIL preserves metadata but needs libtiff installed for TIFFs
