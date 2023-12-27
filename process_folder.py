@@ -12,10 +12,10 @@ from transformations import *
 from imageio import read_img, write_img
 
 
-folder_in = '/Users/wu.l/Downloads/3187'
+folder_in = '/Users/wu.l/Downloads/4316/11926'
 to_invert = False
-folder_in = '/Users/wu.l/Desktop/Scan test'
-to_invert = True
+# folder_in = '/Users/wu.l/Desktop/Scan test'
+# to_invert = True
 
 edit_tag = '-Edit'
 files_in = sorted(os.listdir(folder_in))
@@ -31,7 +31,7 @@ if files_in:
         
         f_in = os.path.join(folder_in, f)
         basename, ext = os.path.splitext(f)
-        f_out = os.path.join(folder_out, f + edit_tag + ext)
+        f_out = os.path.join(folder_out, basename + edit_tag + ext)
 
         img, native_dtype, img_exif = read_img(f_in)
 
@@ -39,7 +39,7 @@ if files_in:
         black_point = auto_black_point(img)
         white_point = auto_white_point(img)
         img = normalise(img, native_dtype, black_point, white_point)
-        img = adjust_contrast(img, native_dtype, 1.5)
-        img = adjust_gamma(img, native_dtype, 1.8)
+        img = adjust_contrast(img, native_dtype, 1)
+        img = adjust_gamma(img, native_dtype, 1)
 
         write_img(f_out, img, img_exif)
