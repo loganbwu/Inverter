@@ -10,16 +10,17 @@ import tifffile
 
 from transformations import *
 from imageio import read_img, write_img
+valid_extensions = ('tif', 'tiff', 'jpg', 'jpeg')
 
 
-folder_in = '/Users/wu.l/Downloads/4316/11926'
+folder_in = '/Users/wu.l/Downloads/1145/12294'
 to_invert = False
 # folder_in = '/Users/wu.l/Desktop/Scan test'
 # to_invert = True
 
 edit_tag = '-Edit'
 files_in = sorted(os.listdir(folder_in))
-files_in = [x for x in files_in if not edit_tag in x and any([x.lower().endswith(y) for y in ['tif', 'tiff', 'jpg', 'jpeg']])]
+files_in = [x for x in files_in if not edit_tag in x and x.lower().endswith(valid_extensions)]
 
 folder_out = os.path.join(folder_in, 'Edits')
 
